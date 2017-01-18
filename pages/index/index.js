@@ -22,5 +22,23 @@ Page({
         userInfo:userInfo
       })
     })
+  },
+  request_backend: function () {
+    console.log('request for backend')
+    var that = this
+    wx.request({
+      url: 'https://www.reviver.cc/api/v1/locations',
+      method: 'GET',
+      success: function(res){
+        // success
+        console.log(res.data)
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

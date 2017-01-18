@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<view class="container">
+<import src="/templates/question.wxml"/>
+<!--view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -7,4 +8,16 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+</view-->
+<view class="swiper-tab">
+    <view class="swiper-tab-list swiper-left {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">问题榜</view>
+     <view class="swiper-tab-list swiper-right {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">悬赏</view>
+</view>
+<view>
+    <block wx:for="{{questions}}" wx-for-item="question">
+        <template is="question" data="{{question}}"/>
+    </block>
+</view>
+<view id="banner">
+    <image class="avatar" mode="aspectFit" src="/images/test-ad.jpg" bindtap="request_backend"></image>
 </view>
